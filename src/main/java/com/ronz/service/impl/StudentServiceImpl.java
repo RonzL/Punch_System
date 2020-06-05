@@ -34,9 +34,12 @@ public class StudentServiceImpl implements StudentService {
 
     }
 
+    /**
+     * 查询出今日未打卡的学生
+     * */
     @Override
     public List<Student> findNoPunch() {
-        return null;
+        return studentDao.findNoPunch();
     }
 
     @Override

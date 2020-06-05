@@ -35,4 +35,16 @@ public class StudentController {
         mv.addObject("studentList", students);
         return mv;
     }
+
+    /**
+     * 2. 查询今日未打卡
+     * */
+    @RequestMapping("findNoPunch.do")
+    public ModelAndView findNoPunch(){
+        List<Student> noPunchList = studentService.findNoPunch();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("nopunch_list");
+        modelAndView.addObject("noPunchList", noPunchList);
+        return modelAndView;
+    }
 }

@@ -440,15 +440,21 @@
                 </a>
                         <ul class="treeview-menu">
 
+                            <li>
+                                <a href="${pageContext.request.contextPath}/class/findAll.do">
+                                    <i class="fa fa-circle-o"></i> 全部班级
+                                </a>
+                            </li>
+
                             <li id="order-manage">
-                                <a href="all-order-manage-list.html">
+                                <a href="${pageContext.request.contextPath}/student/findAll.do">
                             <i class="fa fa-circle-o"></i> 全部学生
                         </a>
                             </li>
 
-                            <li id="order-cancel">
-                                <a href="all-order-cancel-list.html">
-                            <i class="fa fa-circle-o"></i> 退款
+                            <li>
+                                <a href="${pageContext.request.contextPath}/student/findNoPunch.do">
+                            <i class="fa fa-circle-o"></i> 未打卡学生
                         </a>
                             </li>
 
@@ -542,7 +548,12 @@
                                         <td>${item.name}</td>
                                         <td>${item.sex}</td>
                                         <td>${item.classNo}</td>
-                                        <td>${item.status}</td>
+                                        <c:if test="${item.status.equals('Y')}">
+                                            <td><font color="green">健康</font></td>
+                                        </c:if>
+                                        <c:if test="${item.status.equals('N')}">
+                                            <td><font color="red">异常</font></td>
+                                        </c:if>
                                         <td>${item.days}</td>
 
                                         <td class="text-center">

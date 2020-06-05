@@ -111,10 +111,6 @@ table.dataTable thead .sorting_desc_disabled:after {
 	color: #eee;
 }
 
-table.dataTable thead > tr > th {
-	padding-right: 30px;
-}
-
 table.dataTable th:active {
 	outline: none;
 }

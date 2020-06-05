@@ -4,6 +4,7 @@ import com.ronz.domain.Student;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.awt.*;
 import java.util.List;
@@ -36,4 +37,9 @@ public interface StudentDao {
             "values (#{id},#{studentNo},#{password},#{name},#{sex},#{email},#{classNo},#{status},#{days})")
     void addStudent(Student student);
 
+    /**
+     * 4. 查询今日未打卡学生
+     * */
+    @Select("select * from student where status = 'N'")
+    List<Student> findNoPunch();
 }
