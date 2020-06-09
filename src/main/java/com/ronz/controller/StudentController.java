@@ -43,7 +43,7 @@ public class StudentController {
     public ModelAndView findNoPunch(){
         List<Student> noPunchList = studentService.findNoPunch();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("nopunch_list");
+        modelAndView.setViewName("nopunch_student_list");
         modelAndView.addObject("noPunchList", noPunchList);
         return modelAndView;
     }

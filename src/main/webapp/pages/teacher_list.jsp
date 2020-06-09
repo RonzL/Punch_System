@@ -452,9 +452,33 @@
                             </a>
                         </li>
 
-                        <li id="order-manage">
+                        <li>
                             <a href="${pageContext.request.contextPath}/student/findNoPunch.do">
                                 <i class="fa fa-circle-o"></i> 未打卡学生
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-cube"></i> <span>教师管理</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li id="order-manage">
+                            <a href="${pageContext.request.contextPath}/teacher/findAll.do">
+                                <i class="fa fa-circle-o"></i> 全部教师
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="${pageContext.request.contextPath}/student/findAll.do">
+                                <i class="fa fa-circle-o"></i> 未打卡教师
                             </a>
                         </li>
 
@@ -473,13 +497,13 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                学生管理
-                <small>未打卡学生</small>
+                教师管理
+                <small>全部教师</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="all-admin-index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="all-order-manage-list.html">学生管理</a></li>
-                <li class="active">未打卡学生</li>
+                <li><a href="all-order-manage-list.html">教师管理</a></li>
+                <li class="active">全部教师</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
@@ -526,10 +550,9 @@
                                     <input id="selall" type="checkbox" class="icheckbox_square-blue">
                                 </th>
                                 <th class="sorting_asc">序号</th>
-                                <th class="sorting">学号</th>
+                                <th class="sorting">工号</th>
                                 <th class="sorting">姓名</th>
                                 <th class="sorting">性别</th>
-                                <th class="sorting">班级</th>
                                 <th class="sorting">今日状态</th>
                                 <th class="sorting">打卡天数</th>
 
@@ -539,27 +562,25 @@
                             <tbody>
 
 
-                            <c:forEach items="${noPunchList}" var="item" varStatus="i">
+                            <c:forEach items="${teacherList}" var="item" varStatus="i">
 
                                 <tr>
                                     <td><input name="ids" type="checkbox"></td>
                                     <td>${i.count}</td>
-                                    <td>${item.studentNo}</td>
+                                    <td>${item.jobNo}</td>
                                     <td>${item.name}</td>
                                     <td>${item.sex}</td>
-                                    <td>${item.classNo}</td>
                                     <c:if test="${item.status.equals('Y')}">
                                         <td><font color="green">健康</font></td>
                                     </c:if>
                                     <c:if test="${item.status.equals('N')}">
                                         <td><font color="red">异常</font></td>
                                     </c:if>
-
                                     <td>${item.days}</td>
 
                                     <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>详情</button>
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>邮件提醒</button>
+                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>详细信息</button>
+                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>角色管理</button>
                                     </td>
                                 </tr>
 

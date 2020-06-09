@@ -9,6 +9,9 @@ import java.util.List;
 
 /**
  * @program: punchsystem
+ *
+ * 查询班级信息接口
+ *
  * @author: Ronz
  * @create: 2020-06-05 16:48
  **/

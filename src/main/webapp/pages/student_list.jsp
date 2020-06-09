@@ -461,6 +461,30 @@
                         </ul>
                     </li>
 
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-cube"></i> <span>教师管理</span>
+                            <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li>
+                                <a href="${pageContext.request.contextPath}/teacher/findAll.do">
+                                    <i class="fa fa-circle-o"></i> 全部教师
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="${pageContext.request.contextPath}/student/findAll.do">
+                                    <i class="fa fa-circle-o"></i> 未打卡教师
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
                 </ul>
             </section>
             <!-- /.sidebar -->
