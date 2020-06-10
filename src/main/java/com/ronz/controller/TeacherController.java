@@ -42,7 +42,7 @@ public class TeacherController {
     public ModelAndView findNoPunch(){
         List<Teacher> noPunchTeach = service.findNoPunchTeach();
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("nopunch_student_list");
+        mv.setViewName("nopunch_teacher_list");
         mv.addObject("noPunchTeach", noPunchTeach);
         return mv;
     }

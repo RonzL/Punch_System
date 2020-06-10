@@ -430,6 +430,11 @@
                 <!-- 菜单 -->
 
 
+                <li class="treeview">
+                    <a href="${pageContext.request.contextPath}/pages/punch.jsp">
+                        <i class="fa fa-book"></i> <span>健康信息上报</span>
+                    </a>
+                </li>
 
                 <li class="treeview">
                     <a href="#">
@@ -478,7 +483,7 @@
                         </li>
 
                         <li>
-                            <a href="${pageContext.request.contextPath}/student/findAll.do">
+                            <a href="${pageContext.request.contextPath}/teacher/findNoPunch.do">
                                 <i class="fa fa-circle-o"></i> 未打卡教师
                             </a>
                         </li>

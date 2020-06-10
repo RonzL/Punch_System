@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -422,12 +425,66 @@
                 <ul class="sidebar-menu">
                     <li class="header">菜单</li>
 
-                    <li id="admin-index"><a href="all-admin-index.html"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+                    <li id="admin-index"><a href="#"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
-                    <li class="treeview">
-                        <a href="student_punch.html">
+                    <li class="active">
+                        <a href="${pageContext.request.contextPath}/pages/punch.jsp">
                             <i class="fa fa-book"></i> <span>健康信息上报</span>
                         </a>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-cube"></i> <span>学生管理</span>
+                            <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li>
+                                <a href="${pageContext.request.contextPath}/class/findAll.do">
+                                    <i class="fa fa-circle-o"></i> 全部班级
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="${pageContext.request.contextPath}/student/findAll.do">
+                                    <i class="fa fa-circle-o"></i> 全部学生
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="${pageContext.request.contextPath}/student/findNoPunch.do">
+                                    <i class="fa fa-circle-o"></i> 未打卡学生
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-cube"></i> <span>教师管理</span>
+                            <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li>
+                                <a href="${pageContext.request.contextPath}/teacher/findAll.do">
+                                    <i class="fa fa-circle-o"></i> 全部教师
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="${pageContext.request.contextPath}/teacher/findNoPunch.do">
+                                    <i class="fa fa-circle-o"></i> 未打卡教师
+                                </a>
+                            </li>
+
+                        </ul>
                     </li>
 
                 </ul>

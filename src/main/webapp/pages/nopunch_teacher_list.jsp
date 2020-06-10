@@ -429,7 +429,11 @@
 
                 <!-- 菜单 -->
 
-
+                <li class="treeview">
+                    <a href="${pageContext.request.contextPath}/pages/punch.jsp">
+                        <i class="fa fa-book"></i> <span>健康信息上报</span>
+                    </a>
+                </li>
 
                 <li class="treeview">
                     <a href="#">
@@ -461,6 +465,7 @@
                     </ul>
                 </li>
 
+
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-cube"></i> <span>教师管理</span>
@@ -476,7 +481,7 @@
                             </a>
                         </li>
 
-                        <li id="order-manage">
+                        <li  id="order-manage">
                             <a href="${pageContext.request.contextPath}/teacher/findNoPunch.do">
                                 <i class="fa fa-circle-o"></i> 未打卡教师
                             </a>
@@ -484,6 +489,7 @@
 
                     </ul>
                 </li>
+
 
             </ul>
         </section>
@@ -497,13 +503,13 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                教师管理
-                <small>未打卡教师</small>
+                学生管理
+                <small>未打卡学生</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="all-admin-index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="all-order-manage-list.html">教师管理</a></li>
-                <li class="active">未打卡教师</li>
+                <li><a href="all-order-manage-list.html">学生管理</a></li>
+                <li class="active">未打卡学生</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
@@ -550,10 +556,9 @@
                                     <input id="selall" type="checkbox" class="icheckbox_square-blue">
                                 </th>
                                 <th class="sorting_asc">序号</th>
-                                <th class="sorting">学号</th>
+                                <th class="sorting">工号</th>
                                 <th class="sorting">姓名</th>
                                 <th class="sorting">性别</th>
-                                <th class="sorting">班级</th>
                                 <th class="sorting">今日状态</th>
                                 <th class="sorting">打卡天数</th>
 
@@ -563,15 +568,14 @@
                             <tbody>
 
 
-                            <c:forEach items="${studentList}" var="item" varStatus="i">
+                            <c:forEach items="${noPunchTeach}" var="item" varStatus="i">
 
                                 <tr>
                                     <td><input name="ids" type="checkbox"></td>
                                     <td>${i.count}</td>
-                                    <td>${item.studentNo}</td>
+                                    <td>${item.jobNo}</td>
                                     <td>${item.name}</td>
                                     <td>${item.sex}</td>
-                                    <td>${item.classNo}</td>
                                     <c:if test="${item.status.equals('Y')}">
                                         <td><font color="green">健康</font></td>
                                     </c:if>
@@ -581,9 +585,8 @@
                                     <td>${item.days}</td>
 
                                     <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>订单</button>
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>详情</button>
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>编辑</button>
+                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>详细信息</button>
+                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>邮件提醒</button>
                                     </td>
                                 </tr>
 
