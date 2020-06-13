@@ -425,7 +425,7 @@
                 <ul class="sidebar-menu">
                     <li class="header">菜单</li>
 
-                    <li id="admin-index"><a href="#"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+                    <li id="admin-index"><a href="${pageContext.request.contextPath}/pages/personal_info.jsp"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
                     <li class="active">
                         <a href="${pageContext.request.contextPath}/pages/punch.jsp">
@@ -509,63 +509,35 @@
             <!-- 内容头部 /-->
 
             <!-- 正文区域 -->
-            <section class="content">
+            <form action="student_list.jsp" method="post">
+                <section class="content">
+                    <!--下拉框-->
+                    <div class="tab-pane" id="tab-select">
 
-                <div class="box-body">
-
-                    <!--tab页-->
-                    <div class="nav-tabs-custom">
-
-                        <!--tab头/-->
-
-                        <!--tab内容-->
-                        <div class="tab-content">
-
-                            <!--基本设置-->
-                            <div class="tab-pane active" id="tab-form">
-                                <div class="row data-type">
-
-                                    <div class="col-md-2 title">上报人身体状况</div>
-                                    <div class="col-md-10 data">
-                                        <div class="form-group form-inline">
-                                            <div class="radio"><label><input type="radio" name="optionsRadios" value="1">正常</label></div>
-                                            <div class="radio"><label><input type="radio" name="optionsRadios" value="2">呼吸道可疑症</label></div>
-                                            <div class="radio"><label><input type="radio" name="optionsRadios" value="3">未发热且隔离</label></div>
-                                            <div class="radio"><label><input type="radio" name="optionsRadios" value="4">发热且隔离</label></div>
-                                            <div class="radio"><label><input type="radio" name="optionsRadios" value="5">疑似</label></div>
-                                            <div class="radio"><label><input type="radio" name="optionsRadios" value="6">确诊</label></div>
-                                        </div>
+                            <div class="row data-type">
+                                    <div class="col-md-4 title">身体状态</div>
+                                    <div class="col-md-8 data">
+                                        <select name="body_status" class="form-control ">
+                                            <option>正常</option>
+                                            <option>呼吸道可疑症状</option>
+                                            <option>未发热且隔离</option>
+                                            <option>疑似</option>
+                                            <option>确诊</option>
+                                            <option>疑似转排除</option>
+                                            <option>已治愈</option>
+                                        </select>
                                     </div>
-
-
-                                    <div class="col-md-2 title">上报人所在地点</div>
-                                    <div class="col-md-10 data">
-                                        <input type="text" class="form-control" placeholder="精确到门牌号" value="">
+                                    <div class="col-md-4 title">当前位置</div>
+                                    <div class="col-md-8 data">
+                                        <input type="text" class="form-control" name="location" value="" disabled="disabled">
                                     </div>
-
-                                    <div class="col-md-10 data text-center">
-                                        <button type="button" class="btn bg-maroon">保存</button>
-                                        <button type="button" class="btn bg-default" onclick="history.back(-1);">返回</button>
-                                    </div>
-                                </div>
                             </div>
-                            <!--基本设置/-->
-
-                        </div>
-                        <!--tab内容/-->
-
+                            <div style="margin: 10px 40% 10px 5px;" align="right">
+                                <button type="submit" style="width: 15%;" class="btn btn-block btn-primary">提交</button>
+                            </div>
                     </div>
-                    <!--tab页/-->
-
-
-                    <!-- .box-footer
-        <div class="box-footer"></div>
-        -->
-                    <!-- /.box-footer-->
-
-                </div>
-
-            </section>
+                </section>
+            </form>
             <!-- 正文区域 /-->
 
         </div>

@@ -425,12 +425,9 @@
             <ul class="sidebar-menu">
                 <li class="header">菜单</li>
 
-                <li id="admin-index"><a href="${pageContext.request.contextPath}/pages/personal_info.jsp"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+                <li id="admin-index" class="active"><a href="${pageContext.request.contextPath}/pages/personal_info.jsp"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
-                <!-- 菜单 -->
-
-
-                <li class="treeview">
+                <li>
                     <a href="${pageContext.request.contextPath}/pages/punch.jsp">
                         <i class="fa fa-book"></i> <span>健康信息上报</span>
                     </a>
@@ -445,12 +442,11 @@
                     </a>
                     <ul class="treeview-menu">
 
-                        <li id="order-manage">
+                        <li>
                             <a href="${pageContext.request.contextPath}/class/findAll.do">
                                 <i class="fa fa-circle-o"></i> 全部班级
                             </a>
                         </li>
-
 
                         <li>
                             <a href="${pageContext.request.contextPath}/student/findAll.do">
@@ -503,151 +499,101 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                学生管理
-                <small>全部班级</small>
+                首页
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="all-admin-index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="all-order-manage-list.html">学生管理</a></li>
-                <li class="active">全部班级</li>
-            </ol>
         </section>
         <!-- 内容头部 /-->
 
         <!-- 正文区域 -->
+        <!-- Main content -->
         <section class="content">
 
-            <!-- .box-body -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">列表</h3>
+            <div class="row">
+                <div class="col-md-3">
+
+                    <!-- Profile Image -->
+                    <div class="box box-primary">
+                        <div class="box-body box-profile">
+                            <img class="profile-user-img img-responsive img-circle" src="../img/user4-128x128.jpg" alt="User profile picture">
+
+                            <h3 class="profile-username text-center">Nina Mcintire</h3>
+
+                            <p class="text-muted text-center">Software Engineer</p>
+
+                            <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
+                                    <b>今日状态</b> <a class="pull-right">1,322</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>打卡天数</b> <a class="pull-right">543</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
                 </div>
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="nav-tabs-custom">
 
-                <div class="box-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="settings">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="stuNo" class="col-sm-2 control-label">学号</label>
 
-                    <!-- 数据表格 -->
-                    <div class="table-box">
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="stuNo" disabled="disabled" value="这里要输出学号">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name" class="col-sm-2 control-label">姓名</label>
 
-                        <!--工具栏-->
-                        <div class="pull-left">
-                            <div class="form-group form-inline">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default" title="新建" onclick='location.href="all-order-manage-edit.html"'><i class="fa fa-file-o"></i> 新建</button>
-                                    <button type="button" class="btn btn-default" title="删除" onclick='confirm("你确认要删除吗？")'><i class="fa fa-trash-o"></i> 删除</button>
-                                    <button type="button" class="btn btn-default" title="开启" onclick='confirm("你确认要开启吗？")'><i class="fa fa-check"></i> 开启</button>
-                                    <button type="button" class="btn btn-default" title="屏蔽" onclick='confirm("你确认要屏蔽吗？")'><i class="fa fa-ban"></i> 屏蔽</button>
-                                    <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
-                                </div>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="name" disabled="disabled" value="这里要输出姓名">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sex" class="col-sm-2 control-label">性别</label>
+
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="sex" disabled="disabled" value="这里要输出性别">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="class" class="col-sm-2 control-label">班级</label>
+
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="class" disabled="disabled" value="这里要输出班级">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email" class="col-sm-2 control-label">邮箱</label>
+
+                                        <div class="col-sm-10">
+                                            <input class="form-control" id="email" value="这里要输出邮箱"/>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
+                            <!-- /.tab-pane -->
                         </div>
-                        <div class="box-tools pull-right">
-                            <div class="has-feedback">
-                                <input type="text" class="form-control input-sm" placeholder="搜索">
-                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                            </div>
-                        </div>
-                        <!--工具栏/-->
-
-                        <!--数据列表-->
-                        <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
-                            <thead>
-                            <tr>
-                                <th class="" style="padding-right:0px;">
-                                    <input id="selall" type="checkbox" class="icheckbox_square-blue">
-                                </th>
-                                <th class="sorting_asc">序号</th>
-                                <th class="sorting">班级</th>
-                                <th class="sorting">班级人数</th>
-                                <th class="sorting">未打卡人数</th>
-                                <th class="sorting">辅导员</th>
-
-                                <th class="text-center">操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
 
 
-                            <c:forEach items="${classList}" var="item" varStatus="i">
-
-                                <tr>
-                                    <td><input name="ids" type="checkbox"></td>
-                                    <td>${i.count}</td>
-                                    <td>${item.classNo}</td>
-                                    <td>${item.students.size()}</td>
-                                    <td>0/${item.students.size()}</td>
-                                    <td>${item.headMasterNo}</td>
-
-                                    <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>详情</button>
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>编辑</button>
-                                    </td>
-                                </tr>
-
-                            </c:forEach>
-
-
-
-                            </tbody>
-                            <!--
-                        <tfoot>
-                        <tr>
-                        <th>Rendering engine</th>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
-                        <th>Engine version</th>
-                        <th>CSS grade</th>
-                        </tr>
-                        </tfoot>-->
-                        </table>
-                        <!--数据列表/-->
-
+                        <!-- /.tab-content -->
                     </div>
-                    <!-- 数据表格 /-->
-
-
+                    <!-- /.nav-tabs-custom -->
                 </div>
-                <!-- /.box-body -->
-
-                <!-- .box-footer-->
-                <div class="box-footer">
-                    <div class="pull-left">
-                        <div class="form-group form-inline">
-                            总共2 页，共14 条数据。 每页
-                            <select class="form-control">
-                                <option>10</option>
-                                <option>15</option>
-                                <option>20</option>
-                                <option>50</option>
-                                <option>80</option>
-                            </select> 条
-                        </div>
-                    </div>
-
-                    <div class="box-tools pull-right">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">首页</a>
-                            </li>
-                            <li><a href="#">上一页</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">下一页</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">尾页</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-                <!-- /.box-footer-->
-
-
+                <!-- /.col -->
             </div>
+            <!-- /.row -->
 
         </section>
+        <!-- /.content -->
         <!-- 正文区域 /-->
 
     </div>
@@ -733,25 +679,8 @@
 
 
     $(document).ready(function() {
-
         // 激活导航位置
-        setSidebarActive("order-manage");
-
-        // 列表按钮
-        $("#dataList td input[type='checkbox']").iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            increaseArea: '20%'
-        });
-        // 全选操作
-        $("#selall").click(function() {
-            var clicks = $(this).is(':checked');
-            if (!clicks) {
-                $("#dataList td input[type='checkbox']").iCheck("uncheck");
-            } else {
-                $("#dataList td input[type='checkbox']").iCheck("check");
-            }
-            $(this).data("clicks", !clicks);
-        });
+        setSidebarActive("travellog-setting");
     });
 </script>
 </body>
