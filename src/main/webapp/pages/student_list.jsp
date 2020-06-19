@@ -586,9 +586,8 @@
                                         <td>${item.days}</td>
 
                                         <td class="text-center">
-                                            <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>订单</button>
-                                            <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>详情</button>
-                                            <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>编辑</button>
+                                            <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/student/findByStuNo.do?stuNo=${item.studentNo}"'>详情</button>
+                                            <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/pages/student_pwd_edit.jsp?stuNo=${item.studentNo}&stuName=${item.name}"'>重置密码</button>
                                         </td>
                                     </tr>
 

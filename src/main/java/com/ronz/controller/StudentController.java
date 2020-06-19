@@ -5,6 +5,7 @@ import com.ronz.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -46,5 +47,17 @@ public class StudentController {
         modelAndView.setViewName("nopunch_student_list");
         modelAndView.addObject("noPunchList", noPunchList);
         return modelAndView;
+    }
+
+    /**
+     * 3. 根据学号查询学生信息
+     * */
+    @RequestMapping("/findByStuNo.do")
+    public ModelAndView findByStuNo(@RequestParam(name = "stuNo") int stuNo){
+        Student student = studentService.findByStudentNo(stuNo);
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("stuInfo", student);
+        mv.setViewName("student_details");
+        return mv;
     }
 }

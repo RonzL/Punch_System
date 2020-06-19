@@ -42,4 +42,5 @@ public interface StudentDao {
      * */
     @Select("select * from student where status = 'N'")
     List<Student> findNoPunch();
+
 }
