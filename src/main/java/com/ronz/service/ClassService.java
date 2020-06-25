@@ -13,8 +13,8 @@ public interface ClassService {
     List<Class> findAll();
 
     /**
-     * 2. 查找当前班级的所有学生
+     * 2. 查找指定班级所有信息
      * */
-    List<Student> findAllStu(Integer classNo);
+    Class findOneClass(Integer classNo);
 
 }

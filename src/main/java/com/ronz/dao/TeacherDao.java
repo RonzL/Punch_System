@@ -39,4 +39,9 @@ public interface TeacherDao {
     @Select("select * from headmaster where status = 'N'")
     List<Teacher> findNoPunchTeach();
 
+    /**
+     * 3. 根据工号查询教师
+     * */
+    @Select("select * from headmaster where jobNo = #{jobNo}")
+    Teacher findOne(Integer jobNo);
 }

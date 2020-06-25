@@ -35,13 +35,22 @@
 	margin: 10px;
 }
 
+
+.class-info .data-type{
+	margin: 11px 5px 11px 5px;
+	border:1px solid #d4d4d4;
+	border-radius: 2px;
+}
+
+
 /* 数据表格label */
-.content-wrapper .data-type {
+.punch .data-type {
 	/*width: 90%;*/
 	margin: 11px 40% 11px 5px;
 	border:1px solid #d4d4d4;
 	border-radius: 2px;
 }
+
 .data-type .title,
 .data-type .data {
 	padding: 3px 12px;

@@ -31,10 +31,11 @@ public class ClassServiceImpl implements ClassService {
     }
 
     /**
-     * 2. 查询一个班级中的所有学生
+     * 2. 查询指定班级中的所有信息
      * */
     @Override
-    public List<Student> findAllStu(Integer classNo) {
-        return classDao.findAllStu(classNo);
+    public Class findOneClass(Integer classNo) {
+        return classDao.findOneClass(classNo);
     }
+
 }

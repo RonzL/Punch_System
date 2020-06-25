@@ -424,13 +424,9 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="header">菜单</li>
-
                 <li id="admin-index"><a href="${pageContext.request.contextPath}/pages/personal_info.jsp"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
-                <!-- 菜单 -->
-
-
-                <li class="treeview">
+                <li>
                     <a href="${pageContext.request.contextPath}/pages/punch.jsp">
                         <i class="fa fa-book"></i> <span>健康信息上报</span>
                     </a>
@@ -445,7 +441,7 @@
                     </a>
                     <ul class="treeview-menu">
 
-                        <li>
+                        <li id="order-manage">
                             <a href="${pageContext.request.contextPath}/class/findAll.do">
                                 <i class="fa fa-circle-o"></i> 全部班级
                             </a>
@@ -457,7 +453,7 @@
                             </a>
                         </li>
 
-                        <li id="order-manage">
+                        <li>
                             <a href="${pageContext.request.contextPath}/student/findNoPunch.do">
                                 <i class="fa fa-circle-o"></i> 未打卡学生
                             </a>
@@ -465,7 +461,6 @@
 
                     </ul>
                 </li>
-
 
                 <li class="treeview">
                     <a href="#">
@@ -490,8 +485,6 @@
 
                     </ul>
                 </li>
-
-
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -499,18 +492,22 @@
     <!-- 导航侧栏 /-->
 
     <!-- 内容区域 -->
+    <!-- @@master = admin-layout.html-->
+    <!-- @@block = content -->
+
     <div class="content-wrapper">
 
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                学生管理
-                <small>未打卡学生</small>
+                全部班级
+                <small>班级详情</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="all-admin-index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="all-order-manage-list.html">学生管理</a></li>
-                <li class="active">未打卡学生</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+                <li><a href="#">学生管理</a></li>
+                <li><a href="#">全部班级</a></li>
+                <li class="active">班级详情</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
@@ -518,143 +515,175 @@
         <!-- 正文区域 -->
         <section class="content">
 
-            <!-- .box-body -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">列表</h3>
-                </div>
+            <div class="box-body">
 
-                <div class="box-body">
+                <!--tab页-->
+                <div class="nav-tabs-custom">
 
-                    <!-- 数据表格 -->
-                    <div class="table-box">
+                    <!--tab内容-->
+                    <div class="tab-content">
 
-                        <!--工具栏-->
-                        <div class="pull-left">
-                            <div class="form-group form-inline">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default" title="新建" onclick='location.href="all-order-manage-edit.html"'><i class="fa fa-file-o"></i> 新建</button>
-                                    <button type="button" class="btn btn-default" title="删除" onclick='confirm("你确认要删除吗？")'><i class="fa fa-trash-o"></i> 删除</button>
-                                    <button type="button" class="btn btn-default" title="开启" onclick='confirm("你确认要开启吗？")'><i class="fa fa-check"></i> 开启</button>
-                                    <button type="button" class="btn btn-default" title="屏蔽" onclick='confirm("你确认要屏蔽吗？")'><i class="fa fa-ban"></i> 屏蔽</button>
-                                    <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+                        <!--日期控件-->
+                        <div class="tab-pane active" id="tab-date">
+                            <div class="class-info">
+                            <div class="row data-type ">
+
+                                <div class="col-md-2 title">班级</div>
+                                <div class="col-md-4 data">
+                                        <input type="text" class="form-control pull-right" id="datepicker" disabled="disabled" value="${oneClass.classNo}">
+                                </div>
+
+                                <div class="col-md-2 title">辅导员</div>
+                                <div class="col-md-4 data">
+                                        <input type="text" class="form-control pull-right" id="dateTimePicker" disabled="disabled" value="${oneClass.headMaster.name}">
+                                </div>
+
+                                <div class="col-md-2 title">人数</div>
+                                <div class="col-md-4 data">
+                                        <input type="text" class="form-control pull-right" id="reservation" disabled="disabled" value="${oneClass.allStudents.size()}">
+                                </div>
+
+                                <div class="col-md-2 title">未打卡</div>
+                                <div class="col-md-4 data">
+                                        <input type="text" class="form-control pull-right" id="reservationtime" disabled="disabled" value="${oneClass.noPunchStudents.size()}/${oneClass.allStudents.size()}">
                                 </div>
                             </div>
-                        </div>
-                        <div class="box-tools pull-right">
-                            <div class="has-feedback">
-                                <input type="text" class="form-control input-sm" placeholder="搜索">
-                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
                         </div>
-                        <!--工具栏/-->
-
-                        <!--数据列表-->
-                        <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
-                            <thead>
-                            <tr>
-                                <th class="" style="padding-right:0px;">
-                                    <input id="selall" type="checkbox" class="icheckbox_square-blue">
-                                </th>
-                                <th class="sorting_asc">序号</th>
-                                <th class="sorting">学号</th>
-                                <th class="sorting">姓名</th>
-                                <th class="sorting">性别</th>
-                                <th class="sorting">班级</th>
-                                <th class="sorting">今日状态</th>
-                                <th class="sorting">打卡天数</th>
-
-                                <th class="text-center">操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                        <!--日期控件/-->
 
 
-                            <c:forEach items="${noPunchList}" var="item" varStatus="i">
+                    </div>
+                    <!--tab内容/-->
 
+                </div>
+                <!--tab页/-->
+
+                <!-- .box-body -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">本班学生</h3>
+                    </div>
+
+                    <div class="box-body">
+
+                        <!-- 数据表格 -->
+                        <div class="table-box">
+
+                            <!--数据列表-->
+                            <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
+                                <thead>
                                 <tr>
-                                    <td><input name="ids" type="checkbox"></td>
-                                    <td>${i.count}</td>
-                                    <td>${item.studentNo}</td>
-                                    <td>${item.name}</td>
-                                    <td>${item.sex}</td>
-                                    <td>${item.classNo}</td>
-                                    <c:if test="${item.status.equals('Y')}">
-                                        <td><font color="green">健康</font></td>
-                                    </c:if>
-                                    <c:if test="${item.status.equals('N')}">
-                                        <td><font color="red">异常</font></td>
-                                    </c:if>
+                                    <th class="" style="padding-right:0px;">
+                                        <input id="selall" type="checkbox" class="icheckbox_square-blue">
+                                    </th>
+                                    <th class="sorting_asc">序号</th>
+                                    <th class="sorting">学号</th>
+                                    <th class="sorting">姓名</th>
+                                    <th class="sorting">性别</th>
+                                    <th class="sorting">班级</th>
+                                    <th class="sorting">今日状态</th>
+                                    <th class="sorting">打卡天数</th>
 
-                                    <td>${item.days}</td>
-
-                                    <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/student/findByStuNo.do?flag=2&stuNo=${item.studentNo}"'>详情</button>
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>邮件提醒</button>
-                                    </td>
+                                    <th class="text-center">操作</th>
                                 </tr>
-
-                            </c:forEach>
-
-
-
-                            </tbody>
-                            <!--
-                        <tfoot>
-                        <tr>
-                        <th>Rendering engine</th>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
-                        <th>Engine version</th>
-                        <th>CSS grade</th>
-                        </tr>
-                        </tfoot>-->
-                        </table>
-                        <!--数据列表/-->
-
-                    </div>
-                    <!-- 数据表格 /-->
+                                </thead>
+                                <tbody>
 
 
-                </div>
-                <!-- /.box-body -->
+                                <c:forEach items="${oneClass.allStudents}" var="item" varStatus="i">
 
-                <!-- .box-footer-->
-                <div class="box-footer">
-                    <div class="pull-left">
-                        <div class="form-group form-inline">
-                            总共2 页，共14 条数据。 每页
-                            <select class="form-control">
-                                <option>10</option>
-                                <option>15</option>
-                                <option>20</option>
-                                <option>50</option>
-                                <option>80</option>
-                            </select> 条
+                                    <tr>
+                                        <td><input name="ids" type="checkbox"></td>
+                                        <td>${i.count}</td>
+                                        <td>${item.studentNo}</td>
+                                        <td>${item.name}</td>
+                                        <td>${item.sex}</td>
+                                        <td>${item.classNo}</td>
+                                        <c:if test="${item.status.equals('Y')}">
+                                            <td><font color="green">健康</font></td>
+                                        </c:if>
+                                        <c:if test="${item.status.equals('N')}">
+                                            <td><font color="red">异常</font></td>
+                                        </c:if>
+                                        <td>${item.days}</td>
+
+                                        <td class="text-center">
+                                            <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/student/findByStuNo.do?stuNo=${item.studentNo}"'>详情</button>
+                                            <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/pages/student_pwd_edit.jsp?stuNo=${item.studentNo}&stuName=${item.name}"'>重置密码</button>
+                                        </td>
+                                    </tr>
+
+                                </c:forEach>
+
+
+
+                                </tbody>
+                                <!--
+                            <tfoot>
+                            <tr>
+                            <th>Rendering engine</th>
+                            <th>Browser</th>
+                            <th>Platform(s)</th>
+                            <th>Engine version</th>
+                            <th>CSS grade</th>
+                            </tr>
+                            </tfoot>-->
+                            </table>
+                            <!--数据列表/-->
+
                         </div>
-                    </div>
+                        <!-- 数据表格 /-->
 
-                    <div class="box-tools pull-right">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">首页</a>
-                            </li>
-                            <li><a href="#">上一页</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">下一页</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">尾页</a>
-                            </li>
-                        </ul>
+
                     </div>
+                    <!-- /.box-body -->
+
+                    <!-- .box-footer-->
+                    <div class="box-footer">
+                        <div class="pull-left">
+                            <div class="form-group form-inline">
+                                总共2 页，共14 条数据。 每页
+                                <select class="form-control">
+                                    <option>10</option>
+                                    <option>15</option>
+                                    <option>20</option>
+                                    <option>50</option>
+                                    <option>80</option>
+                                </select> 条
+                            </div>
+                        </div>
+
+                        <div class="box-tools pull-right">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">首页</a>
+                                </li>
+                                <li><a href="#">上一页</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">下一页</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">尾页</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /.box-footer-->
+
 
                 </div>
-                <!-- /.box-footer-->
 
+
+
+                <!-- .box-footer
+    <div class="box-footer"></div>
+    -->
+                <!-- /.box-footer-->
 
             </div>
 
@@ -662,6 +691,7 @@
         <!-- 正文区域 /-->
 
     </div>
+    <!-- @@close -->
     <!-- 内容区域 /-->
 
     <!-- 底部导航 -->
@@ -722,16 +752,12 @@
 <script src="../plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
 <script src="../plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 <script>
+
     $(document).ready(function() {
-        // 选择框
-        $(".select2").select2();
 
-        // WYSIHTML5编辑器
-        $(".textarea").wysihtml5({
-            locale: 'zh-CN'
-        });
+        // 激活导航位置
+        setSidebarActive("order-manage");
     });
-
 
     // 设置激活菜单
     function setSidebarActive(tagUri) {
@@ -742,28 +768,6 @@
         }
     }
 
-
-    $(document).ready(function() {
-
-        // 激活导航位置
-        setSidebarActive("order-manage");
-
-        // 列表按钮
-        $("#dataList td input[type='checkbox']").iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            increaseArea: '20%'
-        });
-        // 全选操作
-        $("#selall").click(function() {
-            var clicks = $(this).is(':checked');
-            if (!clicks) {
-                $("#dataList td input[type='checkbox']").iCheck("uncheck");
-            } else {
-                $("#dataList td input[type='checkbox']").iCheck("check");
-            }
-            $(this).data("clicks", !clicks);
-        });
-    });
 </script>
 </body>
 

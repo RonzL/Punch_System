@@ -585,7 +585,7 @@
                                     <td>${item.days}</td>
 
                                     <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>详细信息</button>
+                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/teacher/findOne.do?flag=2&jobNo=${item.jobNo}"'>详细信息</button>
                                         <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>邮件提醒</button>
                                     </td>
                                 </tr>

@@ -53,11 +53,15 @@ public class StudentController {
      * 3. 根据学号查询学生信息
      * */
     @RequestMapping("/findByStuNo.do")
-    public ModelAndView findByStuNo(@RequestParam(name = "stuNo") int stuNo){
+    public ModelAndView findByStuNo(@RequestParam int flag, @RequestParam(name = "stuNo") int stuNo){
         Student student = studentService.findByStudentNo(stuNo);
         ModelAndView mv = new ModelAndView();
-        mv.addObject("stuInfo", student);
-        mv.setViewName("student_details");
+        mv.addObject("info", student);
+        if (flag == 1){
+            mv.setViewName("student_details");
+        } else if (flag == 2){
+            mv.setViewName("nopunch_student_details");
+        }
         return mv;
     }
 }

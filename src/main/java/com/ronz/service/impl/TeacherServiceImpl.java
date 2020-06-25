@@ -35,4 +35,13 @@ public class TeacherServiceImpl implements TeacherService {
     public List<Teacher> findNoPunchTeach() {
         return dao.findNoPunchTeach();
     }
+
+    /**
+     * 3. 根据工号查询教师个人信息
+     * */
+    @Override
+    public Teacher findOne(Integer jobNo) {
+        return dao.findOne(jobNo);
+    }
+
 }

@@ -445,7 +445,7 @@
                     </a>
                     <ul class="treeview-menu">
 
-                        <li>
+                        <li id="order-manage">
                             <a href="${pageContext.request.contextPath}/class/findAll.do">
                                 <i class="fa fa-circle-o"></i> 全部班级
                             </a>
@@ -457,7 +457,7 @@
                             </a>
                         </li>
 
-                        <li id="order-manage">
+                        <li>
                             <a href="${pageContext.request.contextPath}/student/findNoPunch.do">
                                 <i class="fa fa-circle-o"></i> 未打卡学生
                             </a>
@@ -504,13 +504,14 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                学生管理
-                <small>未打卡学生</small>
+                全部班级
+                <small>当前班级未打卡学生</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="all-admin-index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
                 <li><a href="all-order-manage-list.html">学生管理</a></li>
-                <li class="active">未打卡学生</li>
+                <li><a href="all-order-manage-list.html">全部班级</a></li>
+                <li class="active">当前班级未打卡学生</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
@@ -570,7 +571,7 @@
                             <tbody>
 
 
-                            <c:forEach items="${noPunchList}" var="item" varStatus="i">
+                            <c:forEach items="${noPunch}" var="item" varStatus="i">
 
                                 <tr>
                                     <td><input name="ids" type="checkbox"></td>
@@ -589,7 +590,7 @@
                                     <td>${item.days}</td>
 
                                     <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/student/findByStuNo.do?flag=2&stuNo=${item.studentNo}"'>详情</button>
+                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>详情</button>
                                         <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>邮件提醒</button>
                                     </td>
                                 </tr>

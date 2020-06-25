@@ -43,4 +43,24 @@ public interface StudentDao {
     @Select("select * from student where status = 'N'")
     List<Student> findNoPunch();
 
+    /**
+     * 5. 查找指定班级的所有学生
+     * */
+    @Select("select * from student where classNo = #{classNo}")
+    List<Student> findAllStu(Integer classNo);
+
+    /**
+     * 6. 查找指定班级学生数
+     * */
+    @Select("select count(*) from student where classNo = #{classNo}")
+    Integer findAllStuNums(Integer classNo);
+
+
+    /**
+     * 7. 查询指定班级的所有未打卡学生
+     * */
+    @Select("select * from student where classNo = #{classNo} and status = 'N'")
+    List<Student> findNoPunchInClass(int classNo);
+
+
 }

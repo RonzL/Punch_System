@@ -427,10 +427,7 @@
 
                 <li id="admin-index"><a href="${pageContext.request.contextPath}/pages/personal_info.jsp"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
-                <!-- 菜单 -->
-
-
-                <li class="treeview">
+                <li>
                     <a href="${pageContext.request.contextPath}/pages/punch.jsp">
                         <i class="fa fa-book"></i> <span>健康信息上报</span>
                     </a>
@@ -457,7 +454,7 @@
                             </a>
                         </li>
 
-                        <li id="order-manage">
+                        <li>
                             <a href="${pageContext.request.contextPath}/student/findNoPunch.do">
                                 <i class="fa fa-circle-o"></i> 未打卡学生
                             </a>
@@ -465,7 +462,6 @@
 
                     </ul>
                 </li>
-
 
                 <li class="treeview">
                     <a href="#">
@@ -476,7 +472,7 @@
                     </a>
                     <ul class="treeview-menu">
 
-                        <li>
+                        <li id="order-manage">
                             <a href="${pageContext.request.contextPath}/teacher/findAll.do">
                                 <i class="fa fa-circle-o"></i> 全部教师
                             </a>
@@ -491,7 +487,6 @@
                     </ul>
                 </li>
 
-
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -502,164 +497,25 @@
     <div class="content-wrapper">
 
         <!-- 内容头部 -->
+        <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                学生管理
-                <small>未打卡学生</small>
+                学生详情
             </h1>
             <ol class="breadcrumb">
                 <li><a href="all-admin-index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
                 <li><a href="all-order-manage-list.html">学生管理</a></li>
-                <li class="active">未打卡学生</li>
+                <li>全部学生</li>
+                <li class="active">详情</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
+        <!-- 内容头部 /-->
 
         <!-- 正文区域 -->
-        <section class="content">
-
-            <!-- .box-body -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">列表</h3>
-                </div>
-
-                <div class="box-body">
-
-                    <!-- 数据表格 -->
-                    <div class="table-box">
-
-                        <!--工具栏-->
-                        <div class="pull-left">
-                            <div class="form-group form-inline">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default" title="新建" onclick='location.href="all-order-manage-edit.html"'><i class="fa fa-file-o"></i> 新建</button>
-                                    <button type="button" class="btn btn-default" title="删除" onclick='confirm("你确认要删除吗？")'><i class="fa fa-trash-o"></i> 删除</button>
-                                    <button type="button" class="btn btn-default" title="开启" onclick='confirm("你确认要开启吗？")'><i class="fa fa-check"></i> 开启</button>
-                                    <button type="button" class="btn btn-default" title="屏蔽" onclick='confirm("你确认要屏蔽吗？")'><i class="fa fa-ban"></i> 屏蔽</button>
-                                    <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-tools pull-right">
-                            <div class="has-feedback">
-                                <input type="text" class="form-control input-sm" placeholder="搜索">
-                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                            </div>
-                        </div>
-                        <!--工具栏/-->
-
-                        <!--数据列表-->
-                        <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
-                            <thead>
-                            <tr>
-                                <th class="" style="padding-right:0px;">
-                                    <input id="selall" type="checkbox" class="icheckbox_square-blue">
-                                </th>
-                                <th class="sorting_asc">序号</th>
-                                <th class="sorting">学号</th>
-                                <th class="sorting">姓名</th>
-                                <th class="sorting">性别</th>
-                                <th class="sorting">班级</th>
-                                <th class="sorting">今日状态</th>
-                                <th class="sorting">打卡天数</th>
-
-                                <th class="text-center">操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-
-                            <c:forEach items="${noPunchList}" var="item" varStatus="i">
-
-                                <tr>
-                                    <td><input name="ids" type="checkbox"></td>
-                                    <td>${i.count}</td>
-                                    <td>${item.studentNo}</td>
-                                    <td>${item.name}</td>
-                                    <td>${item.sex}</td>
-                                    <td>${item.classNo}</td>
-                                    <c:if test="${item.status.equals('Y')}">
-                                        <td><font color="green">健康</font></td>
-                                    </c:if>
-                                    <c:if test="${item.status.equals('N')}">
-                                        <td><font color="red">异常</font></td>
-                                    </c:if>
-
-                                    <td>${item.days}</td>
-
-                                    <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/student/findByStuNo.do?flag=2&stuNo=${item.studentNo}"'>详情</button>
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>邮件提醒</button>
-                                    </td>
-                                </tr>
-
-                            </c:forEach>
-
-
-
-                            </tbody>
-                            <!--
-                        <tfoot>
-                        <tr>
-                        <th>Rendering engine</th>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
-                        <th>Engine version</th>
-                        <th>CSS grade</th>
-                        </tr>
-                        </tfoot>-->
-                        </table>
-                        <!--数据列表/-->
-
-                    </div>
-                    <!-- 数据表格 /-->
-
-
-                </div>
-                <!-- /.box-body -->
-
-                <!-- .box-footer-->
-                <div class="box-footer">
-                    <div class="pull-left">
-                        <div class="form-group form-inline">
-                            总共2 页，共14 条数据。 每页
-                            <select class="form-control">
-                                <option>10</option>
-                                <option>15</option>
-                                <option>20</option>
-                                <option>50</option>
-                                <option>80</option>
-                            </select> 条
-                        </div>
-                    </div>
-
-                    <div class="box-tools pull-right">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">首页</a>
-                            </li>
-                            <li><a href="#">上一页</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">下一页</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">尾页</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-                <!-- /.box-footer-->
-
-
-            </div>
-
-        </section>
-        <!-- 正文区域 /-->
+        <!-- Main content -->
+        <jsp:include page="teacher_personal_info_content.jsp"></jsp:include>
+        <%-- 正文区域 --%>
 
     </div>
     <!-- 内容区域 /-->
@@ -741,7 +597,6 @@
             liObj.addClass("active");
         }
     }
-
 
     $(document).ready(function() {
 

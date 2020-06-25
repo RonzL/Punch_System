@@ -41,6 +41,11 @@ public interface StudentService {
     List<Student> findIllStudent();
 
     /**
+     * 6. 查询出指定班级未打卡学生
+     * */
+    List<Student> findNoPunchInClass(int classNo);
+
+    /**
      * 7. 查询出有效打卡未满 30 天的学生（有效打卡指的是：过去30天内身体无异常，且连续打卡）
      * */
 

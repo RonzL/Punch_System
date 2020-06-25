@@ -1,7 +1,6 @@
 package com.ronz.dao;
 
 import com.ronz.domain.Class;
-import com.ronz.domain.Student;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
@@ -23,18 +22,20 @@ public interface ClassDao {
      * 1. 查询所有班级（包含各个班级的学生）
      * */
     @Select("select * from class order by classNo")
-    @Results(id = "findAll", value = {
-            @Result(id = true, column = "id", property = "id"),
-            @Result(column = "classNo", property = "classNo"),
-            @Result(column = "headerMasterNo", property = "headerMasterNo"),
-            @Result(property = "students", column = "classNo", many = @Many(select = "com.ronz.dao.ClassDao.findAllStu"))
-    })
+    @ResultMap(value = "findOne")
     List<Class> findAll();
 
-    /**
-     * 2. 查找当前班级的所有学生
-     * */
-    @Select("select * from student where classNo = #{classNo}")
-    List<Student> findAllStu(Integer classNo);
 
+    /**
+     * 2. 查找指定班级的详细信息
+     * */
+    @Select("select * from class where classNo = #{classNo}")
+    @Results(id = "findOne", value = {
+            @Result(id = true, column = "id", property = "id"),
+            @Result(column = "classNo", property = "classNo"),
+            @Result(column = "headMasterNo", property = "headMaster", one = @One(select = "com.ronz.dao.TeacherDao.findOne")),
+            @Result(column = "classNo", property = "allStudents", many = @Many(select = "com.ronz.dao.StudentDao.findAllStu")),
+            @Result(column = "classNo", property = "noPunchStudents", many = @Many(select = "com.ronz.dao.StudentDao.findNoPunchInClass"))
+    })
+    Class findOneClass(Integer classNo);
 }

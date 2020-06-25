@@ -573,13 +573,13 @@
                                     <td><input name="ids" type="checkbox"></td>
                                     <td>${i.count}</td>
                                     <td>${item.classNo}</td>
-                                    <td>${item.students.size()}</td>
-                                    <td>0/${item.students.size()}</td>
-                                    <td>${item.headMasterNo}</td>
+                                    <td>${item.allStudents.size()}</td>
+                                    <td>0/${item.allStudents.size()}</td>
+                                    <td>${item.headMaster.name}</td>
 
                                     <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>详情</button>
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>编辑</button>
+                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/class/findOneClassStu.do?classNo=${item.classNo}"'>详情</button>
+                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/class/findNoPunchInClass.do?classNo=${item.classNo}"'>未打卡</button>
                                     </td>
                                 </tr>
 

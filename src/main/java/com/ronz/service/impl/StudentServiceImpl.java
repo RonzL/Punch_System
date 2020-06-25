@@ -59,4 +59,12 @@ public class StudentServiceImpl implements StudentService {
         return null;
     }
 
+    /**
+     * 6. 查询出指定班级未打卡的学生
+     * */
+    @Override
+    public List<Student> findNoPunchInClass(int classNo) {
+        return studentDao.findNoPunchInClass(classNo);
+    }
+
 }

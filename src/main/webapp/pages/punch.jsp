@@ -513,7 +513,7 @@
                 <section class="content">
                     <!--下拉框-->
                     <div class="tab-pane" id="tab-select">
-
+                    <div class="punch">
                             <div class="row data-type">
                                     <div class="col-md-4 title">身体状态</div>
                                     <div class="col-md-8 data">
@@ -535,6 +535,7 @@
                             <div style="margin: 10px 40% 10px 5px;" align="right">
                                 <button type="submit" style="width: 15%;" class="btn btn-block btn-primary">提交</button>
                             </div>
+                    </div>
                     </div>
                 </section>
             </form>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -44,6 +45,22 @@ public class TeacherController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("nopunch_teacher_list");
         mv.addObject("noPunchTeach", noPunchTeach);
+        return mv;
+    }
+
+    /**
+     * 3. 根据工号查询教师个人信息
+     * */
+    @RequestMapping("/findOne.do")
+    public ModelAndView findByJobNo(@RequestParam int flag ,@RequestParam int jobNo){
+        Teacher info = service.findOne(jobNo);
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("info", info);
+        if (flag == 1){
+            mv.setViewName("teacher_details");
+        } else if (flag == 2){
+            mv.setViewName("nopunch_teacher_details");
+        }
         return mv;
     }
 
