@@ -11,7 +11,7 @@
   </listener>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:applicationContext.xml</param-value>
+    <param-value>classpath*:applicationContext.xml, classpath*:spring-security.xml, classpath*:spring-quartz.xml</param-value>
   </context-param>
 
   <!-- 配置前端控制器 -->
@@ -29,7 +29,13 @@
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
 
+
   <!-- 解决中文乱码问题 -->
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -38,8 +44,20 @@
       <param-value>utf-8</param-value>
     </init-param>
   </filter>
-  <filter-mapping>
+
+    <filter-mapping>
     <filter-name>characterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+  <!-- 如果权限不足就跳转到这个提醒页面 -->
+  <error-page>
+    <error-code>403</error-code>
+    <location>/403.jsp</location>
+  </error-page>
+
 </web-app>

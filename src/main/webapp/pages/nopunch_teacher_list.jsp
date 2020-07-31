@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 
@@ -12,9 +13,9 @@
 
 
 
-    <title>数据 - AdminLTE2定制版</title>
-    <meta name="description" content="AdminLTE2定制版">
-    <meta name="keywords" content="AdminLTE2定制版">
+    <title>健康信息上报系统</title>
+    <meta name="description" content="健康信息上报系统">
+    <meta name="keywords" content="健康信息上报系统">
 
 
 
@@ -127,271 +128,7 @@
 <div class="wrapper">
 
     <!-- 页面头部 -->
-    <header class="main-header">
-
-
-        <!-- Logo -->
-        <a href="all-admin-index.html" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>数据</b></span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>数据</b>后台管理</span>
-        </a>
-
-
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top">
-            <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only">Toggle navigation</span>
-            </a>
-
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <!-- Messages: style can be found in dropdown.less-->
-                    <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">你有4个邮件</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <!-- start message -->
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                系统消息
-                                                <small><i class="fa fa-clock-o"></i> 5 分钟前</small>
-                                            </h4>
-                                            <p>欢迎登录系统?</p>
-                                        </a>
-                                    </li>
-                                    <!-- end message -->
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                团队消息
-                                                <small><i class="fa fa-clock-o"></i> 2 小时前</small>
-                                            </h4>
-                                            <p>你有新的任务了</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Developers
-                                                <small><i class="fa fa-clock-o"></i> Today</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Sales Department
-                                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Reviewers
-                                                <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">See All Messages</a></li>
-                        </ul>
-                    </li>
-                    <!-- Notifications: style can be found in dropdown.less -->
-                    <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning">10</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">你有10个新消息</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-warning text-yellow"></i> Very long description here that may not
-                                            fit into the page and may cause design problems
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-users text-red"></i> 5 new members joined
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-user text-red"></i> You changed your username
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">View all</a></li>
-                        </ul>
-                    </li>
-                    <!-- Tasks: style can be found in dropdown.less -->
-                    <li class="dropdown tasks-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">9</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">你有9个新任务</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Design some buttons
-                                                <small class="pull-right">20%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">20% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                    <li>
-                                        <!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Create a nice theme
-                                                <small class="pull-right">40%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">40% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                    <li>
-                                        <!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Some task I need to do
-                                                <small class="pull-right">60%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">60% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                    <li>
-                                        <!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Make beautiful transitions
-                                                <small class="pull-right">80%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">80% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="#">View all tasks</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- User Account: style can be found in dropdown.less -->
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="../img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">张猿猿</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header">
-                                <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                                <p>
-                                    张猿猿 - 数据管理员
-                                    <small>最后登录 11:20AM</small>
-                                </p>
-                            </li>
-                            <!-- Menu Body
-                    <li class="user-body">
-                        <div class="row">
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Followers</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Sales</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Friends</a>
-                            </div>
-                        </div>
-                    </li>-->
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">修改密码</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">注销</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <jsp:include page="header.jsp" />
     <!-- 页面头部 /-->
 
     <!-- 导航侧栏 -->
@@ -404,8 +141,7 @@
                     <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>张猿猿</p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+                    <security:authentication property="principal.username"></security:authentication>
                 </div>
             </div>
             <!-- search form -->
@@ -425,12 +161,12 @@
             <ul class="sidebar-menu">
                 <li class="header">菜单</li>
 
-                <li id="admin-index"><a href="${pageContext.request.contextPath}/pages/personal_info.jsp"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+                <li id="admin-index"><a href="${pageContext.request.contextPath}/user/getMain.do"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
                 <!-- 菜单 -->
 
                 <li class="treeview">
-                    <a href="${pageContext.request.contextPath}/pages/punch.jsp">
+                    <a href="${pageContext.request.contextPath}/punch/getPunch.do">
                         <i class="fa fa-book"></i> <span>健康信息上报</span>
                     </a>
                 </li>
@@ -466,29 +202,30 @@
                 </li>
 
 
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-cube"></i> <span>教师管理</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
+                <security:authorize access="hasRole('ROLE_ADMIN')">
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-cube"></i> <span>教师管理</span>
+                            <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                        </a>
+                        <ul class="treeview-menu">
 
-                        <li>
-                            <a href="${pageContext.request.contextPath}/teacher/findAll.do">
-                                <i class="fa fa-circle-o"></i> 全部教师
-                            </a>
-                        </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/teacher/findAll.do">
+                                    <i class="fa fa-circle-o"></i> 全部教师
+                                </a>
+                            </li>
 
-                        <li  id="order-manage">
-                            <a href="${pageContext.request.contextPath}/teacher/findNoPunch.do">
-                                <i class="fa fa-circle-o"></i> 未打卡教师
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
+                            <li  id="order-manage">
+                                <a href="${pageContext.request.contextPath}/teacher/findNoPunch.do">
+                                    <i class="fa fa-circle-o"></i> 未打卡教师
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </security:authorize>
 
 
             </ul>
@@ -503,13 +240,13 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                学生管理
-                <small>未打卡学生</small>
+                教师管理
+                <small>未打卡教师</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="all-admin-index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="all-order-manage-list.html">学生管理</a></li>
-                <li class="active">未打卡学生</li>
+                <li><a href="all-order-manage-list.html">教师管理</a></li>
+                <li class="active">未打卡教师</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
@@ -532,11 +269,7 @@
                         <div class="pull-left">
                             <div class="form-group form-inline">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default" title="新建" onclick='location.href="all-order-manage-edit.html"'><i class="fa fa-file-o"></i> 新建</button>
-                                    <button type="button" class="btn btn-default" title="删除" onclick='confirm("你确认要删除吗？")'><i class="fa fa-trash-o"></i> 删除</button>
-                                    <button type="button" class="btn btn-default" title="开启" onclick='confirm("你确认要开启吗？")'><i class="fa fa-check"></i> 开启</button>
-                                    <button type="button" class="btn btn-default" title="屏蔽" onclick='confirm("你确认要屏蔽吗？")'><i class="fa fa-ban"></i> 屏蔽</button>
-                                    <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+                                    <button type="button" class="btn btn-default" title="邮件提醒" onclick="sendToAll()"><i class="fa fa-users"></i> 一键发送邮件提醒</button>
                                 </div>
                             </div>
                         </div>
@@ -568,25 +301,50 @@
                             <tbody>
 
 
-                            <c:forEach items="${noPunchTeach}" var="item" varStatus="i">
+                            <c:forEach items="${pageInfo.list}" var="item" varStatus="i">
 
                                 <tr>
-                                    <td><input name="ids" type="checkbox"></td>
+                                    <td><input class="ids" type="checkbox" value="${item.name}&${item.email}"></td>
                                     <td>${i.count}</td>
-                                    <td>${item.jobNo}</td>
+                                    <td>${item.no}</td>
                                     <td>${item.name}</td>
                                     <td>${item.sex}</td>
-                                    <c:if test="${item.status.equals('Y')}">
-                                        <td><font color="green">健康</font></td>
-                                    </c:if>
-                                    <c:if test="${item.status.equals('N')}">
-                                        <td><font color="red">异常</font></td>
-                                    </c:if>
+                                    <td><font color="gray">未打卡</font></td>
                                     <td>${item.days}</td>
 
                                     <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/teacher/findOne.do?flag=2&jobNo=${item.jobNo}"'>详细信息</button>
-                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="all-order-manage-edit.html"'>邮件提醒</button>
+                                        <button type="button" class="btn bg-olive btn-xs" onclick='location.href="${pageContext.request.contextPath}/teacher/findOne.do?flag=2&no=${item.no}"'>详细信息</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="email_remind" onclick="generate_info('${item.name}', '${item.email}')">
+                                            邮件提醒
+                                        </button>
+
+                                        <div id="myModal" class="modal modal-primary" role="dialog">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title">邮件提醒</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+
+
+                                                        <div class="box-body">
+                                                            <textarea id="email_info" class="form-control" rows="3" style="height: 200px; font-size: 18px;" required></textarea>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-outline" data-dismiss="modal">关闭</button>
+                                                        <button type="button" id="send_email" class="btn btn-outline">发送</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                        <!-- /.modal -->
                                     </td>
                                 </tr>
 
@@ -619,32 +377,20 @@
                 <div class="box-footer">
                     <div class="pull-left">
                         <div class="form-group form-inline">
-                            总共2 页，共14 条数据。 每页
-                            <select class="form-control">
-                                <option>10</option>
-                                <option>15</option>
-                                <option>20</option>
-                                <option>50</option>
-                                <option>80</option>
+                            总 ${pageInfo.totalPage} 页，共 ${pageInfo.totalCount} 条数据。 每页
+                            <select class="form-control" id="pageSize">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
                             </select> 条
                         </div>
                     </div>
 
+
                     <div class="box-tools pull-right">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">首页</a>
-                            </li>
-                            <li><a href="#">上一页</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">下一页</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">尾页</a>
-                            </li>
+                        <ul class="pagination" id="pageNum">
+
                         </ul>
                     </div>
 
@@ -661,12 +407,7 @@
     <!-- 内容区域 /-->
 
     <!-- 底部导航 -->
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0.8
-        </div>
-        <strong>Copyright &copy; 2014-2017 <a href="http://www.itcast.cn">研究院研发部</a>.</strong> All rights reserved.
-    </footer>
+    <jsp:include page="footer.jsp"></jsp:include>
     <!-- 底部导航 /-->
 
 </div>
@@ -717,17 +458,8 @@
 <script src="../plugins/bootstrap-slider/bootstrap-slider.js"></script>
 <script src="../plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
 <script src="../plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../plugins/paging.js"></script>
 <script>
-    $(document).ready(function() {
-        // 选择框
-        $(".select2").select2();
-
-        // WYSIHTML5编辑器
-        $(".textarea").wysihtml5({
-            locale: 'zh-CN'
-        });
-    });
-
 
     // 设置激活菜单
     function setSidebarActive(tagUri) {
@@ -740,6 +472,9 @@
 
 
     $(document).ready(function() {
+
+
+        load(${pageInfo.currentPage}, ${pageInfo.pageSize}, ${pageInfo.totalPage}, '${pageContext.request.contextPath}/teacher/findNoPunch.do');
 
         // 激活导航位置
         setSidebarActive("order-manage");
@@ -760,6 +495,55 @@
             $(this).data("clicks", !clicks);
         });
     });
+
+    function generate_info(name, email) {
+        // 1. 只要一点击发送邮件按钮，就生成邮件内容
+        var message = "尊敬的" + name + "同学，您好。现提醒您今日还未上报健康信息，请及时上报。";
+        // 2. 把内容填充到输入框
+        $("#email_info").text(message);
+
+        // 3. "发送" 按钮点击事件
+        $("#send_email").click(function(){
+            // 4. 把邮箱内容和收件人的邮箱发送给后台
+            $.ajax({url:"${pageContext.request.contextPath}/teacher/sendEmail.do",
+                data:{email:email, message:$("#email_info").val()},
+                type:"POST",
+                success:function (data, textStatus) {
+                    // 当后台成功返回信息时
+                    alert("邮件发送成功");
+                }
+            })
+        });
+    }
+
+    /**
+     * 发送邮件给被选中的
+     * */
+    function sendToAll() {
+        var flag = confirm("您确认要发送邮件吗");
+        if (flag){
+            var names = [];
+            var emails = [];
+            // 获取复选框状态
+            $(".ids:checked").each(function (i) {
+                info = $(this).val().split("&")
+                names[i] = info[0];
+                emails[i] = info[1];
+            });
+            var count = 0;
+            var length = names.length
+            for (var i = 0; i < length; i++){
+                // 1. 生成邮件内容
+                var message = "尊敬的" + names[i] + "老师，您好。现提醒您今日还未上报健康信息，请及时上报。";
+                // 2. 发送提醒
+                $.ajax({url:"${pageContext.request.contextPath}/teacher/sendEmail.do",
+                    data:{email:emails[i], message:message},
+                    type:"POST"
+                })
+            }
+            alert("邮件发送完成");
+        }
+    }
 </script>
 </body>
 

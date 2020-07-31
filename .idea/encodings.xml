@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/css" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/img" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/pages/login.jsp" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/pages/punch.jsp" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/pages/student_list.jsp" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/plugins" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ronz/controller/PunchController.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -27,7 +27,10 @@
                                 <span style="color: green; ">正常</span>
                             </c:if>
                             <c:if test="${info.status.equals('N')}">
-                                <span style="color: red">异常</span>
+                                <span style="color: dimgrey">未打卡</span>
+                            </c:if>
+                            <c:if test="${info.status.equals('S')}">
+                                <span style="color: red">${info.punches.get(0).physical_state}</span>
                             </c:if>
 
                         </a>
@@ -48,26 +51,26 @@
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="settings">
-                        <form method="post" action="modify " class="form-horizontal">
+                        <form id="form" method="post" action="${pageContext.request.contextPath}/student/saveInfo.do" class="form-horizontal">
                             <div class="form-group">
                                 <label for="stuNo" class="col-sm-2 control-label">学号</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="stuNo" value="${info.studentNo}">
+                                    <input type="number" class="form-control" name="no" id="stuNo" value="${info.no}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="name" class="col-sm-2 control-label">姓名</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="name" value="${info.name}">
+                                    <input type="text" class="form-control" name="name" id="name" value="${info.name}" >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="sex" class="col-sm-2 control-label">性别</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="sex" value="${info.sex}">
+                                    <input type="text" class="form-control" id="sex" name="sex" value="${info.sex}">
                                 </div>
                             </div>
 
@@ -75,7 +78,7 @@
                                 <label for="class" class="col-sm-2 control-label">班级</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="class" value="${info.classNo}">
+                                    <input type="number" class="form-control" id="class" name="classNo" value="${info.classNo}">
                                 </div>
                             </div>
 
@@ -83,9 +86,11 @@
                                 <label for="email" class="col-sm-2 control-label">邮箱</label>
 
                                 <div class="col-sm-10">
-                                    <input class="form-control" id="email" value="${info.email}"/>
+                                    <input class="form-control" id="email" name="email" value="${info.email}"/>
                                 </div>
                             </div>
+
+                            <input hidden="hidden" id="flag" name="flag" value="${flag}">
 
                             <div align="center">
                                 <button type="submit" style="width: 15%;" class="btn btn-block btn-primary">保存修改</button>
@@ -106,5 +111,6 @@
     <!-- /.row -->
 
 </section>
+
 <!-- /.content -->
 <!-- 正文区域 /-->

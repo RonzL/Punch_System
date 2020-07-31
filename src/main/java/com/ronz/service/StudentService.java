@@ -1,6 +1,8 @@
 package com.ronz.service;
 
 import com.ronz.dao.StudentDao;
+import com.ronz.domain.Page;
+import com.ronz.domain.Punch;
 import com.ronz.domain.Student;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -12,7 +14,7 @@ import java.util.List;
  * @author: Ronz
  * @create: 2020-06-03 21:06
  **/
-public interface StudentService {
+public interface StudentService{
 
 
     /**
@@ -23,7 +25,7 @@ public interface StudentService {
     /**
      * 2. 查询出所有学生的信息
      * */
-    List<Student> findAll();
+    Page<Student> findAll(int currentPage, int pageSize);
 
     /**
      * 3. 增加学生
@@ -31,9 +33,15 @@ public interface StudentService {
     void addStudent(Student student);
 
     /**
-     * 4. 查询出今天未打卡的学生
+     * 4. 分页查询出今天未打卡的学生
      * */
-    List<Student> findNoPunch();
+    Page<Student> findNoPunch(int currentPage, int pageSize);
+
+    /**
+     * 查询出今天所有未打卡的学生
+     * @return
+     */
+    List<Student> findAllNoPunch();
 
     /**
      * 5. 查询出今天打卡身体异常的学生
@@ -46,12 +54,32 @@ public interface StudentService {
     List<Student> findNoPunchInClass(int classNo);
 
     /**
-     * 7. 查询出有效打卡未满 30 天的学生（有效打卡指的是：过去30天内身体无异常，且连续打卡）
+     * 7. 保存个人信息
      * */
-
+    boolean saveInfo(Student student);
 
     /**
-     * 8. 查询出身体有异常的学生
+     * 更新主页个人信息
      * */
+    void updateInfo(int no, String email);
 
+    /**
+     * 8. 修改密码
+     * */
+    boolean modifyPwd(String password, Integer no);
+
+    /**
+     * 9. 上传打卡信息
+     * */
+    void uploadInfo(Punch punch);
+
+    /**
+     * 重置所有学生的打卡状态为 'N'
+     */
+    void updateAllStatus();
+
+    /**
+     * 向所有的学生发送提醒邮件
+     */
+    void sendEmail();
 }

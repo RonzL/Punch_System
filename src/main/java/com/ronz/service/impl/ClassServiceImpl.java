@@ -3,6 +3,7 @@ package com.ronz.service.impl;
 import com.ronz.dao.ClassDao;
 import com.ronz.dao.StudentDao;
 import com.ronz.domain.Class;
+import com.ronz.domain.Page;
 import com.ronz.domain.Student;
 import com.ronz.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,16 @@ public class ClassServiceImpl implements ClassService {
      * 1. 查询所有班级（包含学生）
      * */
     @Override
-    public List<Class> findAll() {
-        return classDao.findAll();
+    public Page<Class> findAll(int currentPage, int pageSize) {
+        List<Class> classList =  classDao.findAll((currentPage - 1) * pageSize, pageSize);
+        int count = classDao.findCount();
+        Page<Class> classPage = new Page<>();
+        classPage.setCurrentPage(currentPage);
+        classPage.setList(classList);
+        classPage.setPageSize(pageSize);
+        classPage.setTotalCount(count);
+        classPage.setTotalPage(count/pageSize + (count%pageSize==0?0:1));
+        return classPage;
     }
 
     /**

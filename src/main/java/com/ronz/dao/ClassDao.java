@@ -21,9 +21,9 @@ public interface ClassDao {
     /**
      * 1. 查询所有班级（包含各个班级的学生）
      * */
-    @Select("select * from class order by classNo")
+    @Select("select * from class order by classNo limit #{currentPage}, #{pageSize}")
     @ResultMap(value = "findOne")
-    List<Class> findAll();
+    List<Class> findAll(@Param("currentPage") int currentPage, @Param("pageSize") int pageSize);
 
 
     /**
@@ -38,4 +38,12 @@ public interface ClassDao {
             @Result(column = "classNo", property = "noPunchStudents", many = @Many(select = "com.ronz.dao.StudentDao.findNoPunchInClass"))
     })
     Class findOneClass(Integer classNo);
+
+
+    /**
+     * 查找班级个数
+     * @return
+     */
+    @Select("select count(*) from class")
+    Integer findCount();
 }

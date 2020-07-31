@@ -1,6 +1,7 @@
 package com.ronz.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @program: punchsystem
@@ -10,7 +11,7 @@ import java.io.Serializable;
 public class Student implements Serializable {
 
     private Integer id;
-    private Integer studentNo;
+    private Integer no;
     private String password;
     private String name;
     private String sex;
@@ -18,6 +19,15 @@ public class Student implements Serializable {
     private Integer classNo;
     private String status;
     private Integer days;
+    private List<Punch> punches;
+
+    public List<Punch> getPunches() {
+        return punches;
+    }
+
+    public void setPunches(List<Punch> punches) {
+        this.punches = punches;
+    }
 
     public Integer getId() {
         return id;
@@ -27,12 +37,12 @@ public class Student implements Serializable {
         this.id = id;
     }
 
-    public Integer getStudentNo() {
-        return studentNo;
+    public Integer getNo() {
+        return no;
     }
 
-    public void setStudentNo(Integer studentNo) {
-        this.studentNo = studentNo;
+    public void setNo(Integer studentNo) {
+        this.no = studentNo;
     }
 
     public String getPassword() {
@@ -91,18 +101,4 @@ public class Student implements Serializable {
         this.days = days;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", studentNo=" + studentNo +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", sex='" + sex + '\'' +
-                ", email='" + email + '\'' +
-                ", classNo=" + classNo +
-                ", status='" + status + '\'' +
-                ", days=" + days +
-                '}';
-    }
 }

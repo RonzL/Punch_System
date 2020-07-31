@@ -10,7 +10,7 @@ import java.util.List;
  **/
 public class Teacher implements Serializable {
 
-    private Integer jobNo;
+    private Integer no;
     private String password;
     private String name;
     private String sex;
@@ -18,14 +18,22 @@ public class Teacher implements Serializable {
     private String status;
     private Integer days;
     private List<Role> roles;
+    private List<Punch> punches;
 
-
-    public Integer getJobNo() {
-        return jobNo;
+    public List<Punch> getPunches() {
+        return punches;
     }
 
-    public void setJobNo(Integer jobNo) {
-        this.jobNo = jobNo;
+    public void setPunches(List<Punch> punches) {
+        this.punches = punches;
+    }
+
+    public Integer getNo() {
+        return no;
+    }
+
+    public void setNo(Integer no) {
+        this.no = no;
     }
 
     public String getPassword() {
@@ -84,17 +92,4 @@ public class Teacher implements Serializable {
         this.roles = roles;
     }
 
-    @Override
-    public String toString() {
-        return "Teacher{" +
-                ", jobNo=" + jobNo +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", sex='" + sex + '\'' +
-                ", email='" + email + '\'' +
-                ", status='" + status + '\'' +
-                ", days=" + days +
-                ", roles=" + roles +
-                '}';
-    }
 }

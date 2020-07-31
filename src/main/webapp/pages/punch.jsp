@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 
@@ -12,39 +13,15 @@
 
 
 
-    <title>数据 - AdminLTE2定制版</title>
-    <meta name="description" content="AdminLTE2定制版">
-    <meta name="keywords" content="AdminLTE2定制版">
+    <title>健康信息上报系统</title>
+    <meta name="description" content="健康信息上报系统">
+    <meta name="keywords" content="健康信息上报系统">
 
 
 
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.6 -->
-    <!-- Font Awesome -->
-    <!-- Ionicons -->
-    <!-- iCheck -->
-    <!-- Morris chart -->
-    <!-- jvectormap -->
-    <!-- Date Picker -->
-    <!-- Daterange picker -->
-    <!-- Bootstrap time Picker -->
-    <!--<link rel="stylesheet" href="../../../plugins/timepicker/bootstrap-timepicker.min.css">-->
-    <!-- bootstrap wysihtml5 - text editor -->
-    <!--数据表格-->
-    <!-- 表格树 -->
-    <!-- select2 -->
-    <!-- Bootstrap Color Picker -->
-    <!-- bootstrap wysihtml5 - text editor -->
-    <!--bootstrap-markdown-->
-    <!-- Theme style -->
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-    <!-- Ion Slider -->
-    <!-- ion slider Nice -->
-    <!-- bootstrap slider -->
-    <!-- bootstrap-datetimepicker -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,50 +30,6 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-
-
-
-
-
-
-
-    <!-- jQuery 2.2.3 -->
-    <!-- jQuery UI 1.11.4 -->
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <!-- Bootstrap 3.3.6 -->
-    <!-- Morris.js charts -->
-    <!-- Sparkline -->
-    <!-- jvectormap -->
-    <!-- jQuery Knob Chart -->
-    <!-- daterangepicker -->
-    <!-- datepicker -->
-    <!-- Bootstrap WYSIHTML5 -->
-    <!-- Slimscroll -->
-    <!-- FastClick -->
-    <!-- iCheck -->
-    <!-- AdminLTE App -->
-    <!-- 表格树 -->
-    <!-- select2 -->
-    <!-- bootstrap color picker -->
-    <!-- bootstrap time picker -->
-    <!--<script src="../../../plugins/timepicker/bootstrap-timepicker.min.js"></script>-->
-    <!-- Bootstrap WYSIHTML5 -->
-    <!--bootstrap-markdown-->
-    <!-- CK Editor -->
-    <!-- InputMask -->
-    <!-- DataTables -->
-    <!-- ChartJS 1.0.1 -->
-    <!-- FLOT CHARTS -->
-    <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
-    <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-    <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
-    <!-- jQuery Knob -->
-    <!-- Sparkline -->
-    <!-- Morris.js charts -->
-    <!-- Ion Slider -->
-    <!-- Bootstrap slider -->
-    <!-- bootstrap-datetimepicker -->
-    <!-- 页面meta /-->
 
     <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
@@ -126,273 +59,8 @@
 
     <div class="wrapper">
 
-        <!-- 页面头部 -->
-        <header class="main-header">
-
-
-            <!-- Logo -->
-            <a href="all-admin-index.html" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>数据</b></span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>数据</b>后台管理</span>
-            </a>
-
-
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-        </a>
-
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-                        <li class="dropdown messages-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-envelope-o"></i>
-                        <span class="label label-success">4</span>
-                    </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">你有4个邮件</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li>
-                                            <!-- start message -->
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                                </div>
-                                                <h4>
-                                                    系统消息
-                                                    <small><i class="fa fa-clock-o"></i> 5 分钟前</small>
-                                                </h4>
-                                                <p>欢迎登录系统?</p>
-                                            </a>
-                                        </li>
-                                        <!-- end message -->
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="../img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                                </div>
-                                                <h4>
-                                                    团队消息
-                                                    <small><i class="fa fa-clock-o"></i> 2 小时前</small>
-                                                </h4>
-                                                <p>你有新的任务了</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="../img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                                </div>
-                                                <h4>
-                                                    Developers
-                                                    <small><i class="fa fa-clock-o"></i> Today</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="../img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                                </div>
-                                                <h4>
-                                                    Sales Department
-                                                    <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="../img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                                </div>
-                                                <h4>
-                                                    Reviewers
-                                                    <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="#">See All Messages</a></li>
-                            </ul>
-                        </li>
-                        <!-- Notifications: style can be found in dropdown.less -->
-                        <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-bell-o"></i>
-                        <span class="label label-warning">10</span>
-                    </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">你有10个新消息</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="#">
-                                        <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                    </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                        <i class="fa fa-warning text-yellow"></i> Very long description here that may not
-                                        fit into the page and may cause design problems
-                                    </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                        <i class="fa fa-users text-red"></i> 5 new members joined
-                                    </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                        <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                                    </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                        <i class="fa fa-user text-red"></i> You changed your username
-                                    </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="#">View all</a></li>
-                            </ul>
-                        </li>
-                        <!-- Tasks: style can be found in dropdown.less -->
-                        <li class="dropdown tasks-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-flag-o"></i>
-                        <span class="label label-danger">9</span>
-                    </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">你有9个新任务</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li>
-                                            <!-- Task item -->
-                                            <a href="#">
-                                                <h3>
-                                                    Design some buttons
-                                                    <small class="pull-right">20%</small>
-                                                </h3>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">20% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- end task item -->
-                                        <li>
-                                            <!-- Task item -->
-                                            <a href="#">
-                                                <h3>
-                                                    Create a nice theme
-                                                    <small class="pull-right">40%</small>
-                                                </h3>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">40% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- end task item -->
-                                        <li>
-                                            <!-- Task item -->
-                                            <a href="#">
-                                                <h3>
-                                                    Some task I need to do
-                                                    <small class="pull-right">60%</small>
-                                                </h3>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">60% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- end task item -->
-                                        <li>
-                                            <!-- Task item -->
-                                            <a href="#">
-                                                <h3>
-                                                    Make beautiful transitions
-                                                    <small class="pull-right">80%</small>
-                                                </h3>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">80% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- end task item -->
-                                    </ul>
-                                </li>
-                                <li class="footer">
-                                    <a href="#">View all tasks</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="../img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">张猿猿</span>
-                    </a>
-                            <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header">
-                                    <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                                    <p>
-                                        张猿猿 - 数据管理员
-                                        <small>最后登录 11:20AM</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Body 
-                        <li class="user-body">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Followers</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Sales</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Friends</a>
-                                </div>
-                            </div>
-                        </li>-->
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">修改密码</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">注销</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- 页面头部 /-->
+        <%-- 引入页面头部 --%>
+        <jsp:include page="header.jsp"/>
 
         <!-- 导航侧栏 -->
         <aside class="main-sidebar">
@@ -403,90 +71,83 @@
                     <div class="pull-left image">
                         <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
-                    <div class="pull-left info">
-                        <p>张猿猿</p>
-                        <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+                    <div id="side_name" class="pull-left info">
+                        <security:authentication property="principal.username"></security:authentication>
+                    </div>
+                    <div style="display: none">
+
                     </div>
                 </div>
-                <!-- search form -->
-                <!--<form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="搜索...">
-                <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-        </form>-->
-                <!-- /.search form -->
 
 
-                <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li class="header">菜单</li>
 
-                    <li id="admin-index"><a href="${pageContext.request.contextPath}/pages/personal_info.jsp"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+                    <li id="admin-index"><a href="${pageContext.request.contextPath}/user/getMain.do"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
                     <li class="active">
-                        <a href="${pageContext.request.contextPath}/pages/punch.jsp">
+                        <a href="${pageContext.request.contextPath}/punch/getPunch.do">
                             <i class="fa fa-book"></i> <span>健康信息上报</span>
                         </a>
                     </li>
 
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-cube"></i> <span>学生管理</span>
-                            <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                        </a>
-                        <ul class="treeview-menu">
+                    <security:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cube"></i> <span>学生管理</span>
+                                <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                            </a>
+                            <ul class="treeview-menu">
 
-                            <li>
-                                <a href="${pageContext.request.contextPath}/class/findAll.do">
-                                    <i class="fa fa-circle-o"></i> 全部班级
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/class/findAll.do">
+                                        <i class="fa fa-circle-o"></i> 全部班级
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/student/findAll.do">
+                                        <i class="fa fa-circle-o"></i> 全部学生
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/student/findNoPunch.do">
+                                        <i class="fa fa-circle-o"></i> 未打卡学生
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <%-- 管理员才能访问以下内容 --%>
+                        <security:authorize access="hasRole('ROLE_ADMIN')">
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-cube"></i> <span>教师管理</span>
+                                    <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
                                 </a>
+                                <ul class="treeview-menu">
+
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/teacher/findAll.do">
+                                            <i class="fa fa-circle-o"></i> 全部教师
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/teacher/findNoPunch.do">
+                                            <i class="fa fa-circle-o"></i> 未打卡教师
+                                        </a>
+                                    </li>
+
+                                </ul>
                             </li>
-
-                            <li>
-                                <a href="${pageContext.request.contextPath}/student/findAll.do">
-                                    <i class="fa fa-circle-o"></i> 全部学生
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="${pageContext.request.contextPath}/student/findNoPunch.do">
-                                    <i class="fa fa-circle-o"></i> 未打卡学生
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-cube"></i> <span>教师管理</span>
-                            <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                        </a>
-                        <ul class="treeview-menu">
-
-                            <li>
-                                <a href="${pageContext.request.contextPath}/teacher/findAll.do">
-                                    <i class="fa fa-circle-o"></i> 全部教师
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="${pageContext.request.contextPath}/teacher/findNoPunch.do">
-                                    <i class="fa fa-circle-o"></i> 未打卡教师
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
+                        </security:authorize>
+                    </security:authorize>
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -509,32 +170,51 @@
             <!-- 内容头部 /-->
 
             <!-- 正文区域 -->
-            <form action="student_list.jsp" method="post">
+            <form action="${pageContext.request.contextPath}/punch/uploadInfo.do" method="post">
                 <section class="content">
                     <!--下拉框-->
                     <div class="tab-pane" id="tab-select">
                     <div class="punch">
                             <div class="row data-type">
+                                    <div class="col-md-4 title">学/工 号</div>
+                                    <div class="col-md-8 data">
+                                        <input type="text" class="form-control" id="no" name="no" value="${info.no}" readonly="readonly">
+                                    </div>
+
                                     <div class="col-md-4 title">身体状态</div>
                                     <div class="col-md-8 data">
-                                        <select name="body_status" class="form-control ">
-                                            <option>正常</option>
-                                            <option>呼吸道可疑症状</option>
-                                            <option>未发热且隔离</option>
-                                            <option>疑似</option>
-                                            <option>确诊</option>
-                                            <option>疑似转排除</option>
-                                            <option>已治愈</option>
+                                        <select name="physical_state" class="form-control ">
+                                            <option value="0">正常</option>
+                                            <option value="1">呼吸道可疑症状</option>
+                                            <option value="2">未发热且隔离</option>
+                                            <option value="3">疑似</option>
+                                            <option value="4">确诊</option>
+                                            <option value="5">疑似转排除</option>
+                                            <option value="6">已治愈</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4 title">当前位置</div>
                                     <div class="col-md-8 data">
-                                        <input type="text" class="form-control" name="location" value="" disabled="disabled">
+                                        <input type="text" class="form-control" name="address" id="location" value="" readonly="readonly">
                                     </div>
+
+                                    <div class="col-md-4 title">当前时间</div>
+                                    <div class="col-md-8 data">
+                                        <input type="text" class="form-control" id="date" name="date" value="date" readonly="readonly">
+                                    </div>
+
                             </div>
-                            <div style="margin: 10px 40% 10px 5px;" align="right">
-                                <button type="submit" style="width: 15%;" class="btn btn-block btn-primary">提交</button>
-                            </div>
+                            <c:if test="${'N'.equals(info.status)}">
+                                <div style="margin: 10px 40% 10px 5px;" align="right">
+                                    <button type="submit" style="width: 15%;" class="btn btn-block btn-primary">提交</button>
+                                </div>
+                            </c:if>
+                            <c:if test="${'Y'.equals(info.status) || 'S'.equals(info.status)}">
+                                <div style="margin: 10px 40% 10px 5px;" align="right">
+                                    <button disabled="disabled" type="submit" style="width: 15%; background: grey" class="btn btn-block btn-primary">已上报</button>
+                                </div>
+                            </c:if>
+
                     </div>
                     </div>
                 </section>
@@ -545,12 +225,7 @@
         <!-- 内容区域 /-->
 
         <!-- 底部导航 -->
-        <footer class="main-footer">
-            <div class="pull-right hidden-xs">
-                <b>Version</b> 1.0.8
-            </div>
-            <strong>Copyright &copy; 2014-2017 <a href="http://www.itcast.cn">研究院研发部</a>.</strong> All rights reserved.
-        </footer>
+        <jsp:include page="footer.jsp"></jsp:include>
         <!-- 底部导航 /-->
 
     </div>
@@ -626,7 +301,57 @@
         $(document).ready(function() {
             // 激活导航位置
             setSidebarActive("travellog-setting");
+
+            // 获取当前 ip 的地理位置
+            $.ajax({url:"https://apis.map.qq.com/ws/location/v1/ip?output=jsonp&key=这里需要自己到腾讯地图申请一个key",
+                    method:"GET",
+                    dataType:"jsonp",
+                    success:function (data) {
+                        var address = data["result"]["ad_info"];
+                        var nation = address["nation"];
+                        var province = address["province"];
+                        var city = address["city"];
+                        var district = address["district"];
+                        $("#location").attr("value", nation+province+city+district);
+                    },
+                    error:function () {
+                        console.log("fail");
+                    }
+            });
+
+            // 设置当前时间
+            $("#date").attr("value", new Date().format("yyyy-MM-dd hh:mm:ss"));
         });
+
+        // 定义一个日期格式化函数
+        Date.prototype.format = function(fmt){
+            var o = {
+                "M+" : this.getMonth()+1,                 //月份
+                "d+" : this.getDate(),                    //日
+                "h+" : this.getHours(),                   //小时
+                "m+" : this.getMinutes(),                 //分
+                "s+" : this.getSeconds(),                 //秒
+                "q+" : Math.floor((this.getMonth()+3)/3), //季度
+                "S"  : this.getMilliseconds()             //毫秒
+            };
+
+            if(/(y+)/.test(fmt)){
+                fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+            }
+
+            for(var k in o){
+                if(new RegExp("("+ k +")").test(fmt)){
+                    fmt = fmt.replace(
+                        RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+                }
+            }
+
+            return fmt;
+        };
+
+
+
+
     </script>
 </body>
 

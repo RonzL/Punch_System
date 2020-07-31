@@ -2641,7 +2641,6 @@ input[type="search"] {
 .radio label,
 .checkbox label {
   min-height: 20px;
-  padding-left: 20px;
   margin-bottom: 0;
   font-weight: normal;
   cursor: pointer;
@@ -3445,10 +3444,11 @@ fieldset[disabled] .btn-link:focus {
   line-height: 1.5;
   border-radius: 3px;
 }
+
 .btn-xs,
 .btn-group-xs > .btn {
-  padding: 1px 5px;
-  font-size: 12px;
+  padding: 6px 12px;
+  font-size: 14px;
   line-height: 1.5;
   border-radius: 3px;
 }

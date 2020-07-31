@@ -3,12 +3,15 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security.xsd">
 
 
     <!-- 1. 配置包扫描 -->
@@ -25,5 +28,25 @@
     <mvc:resources mapping="/img/**" location="/img/"></mvc:resources>
     <mvc:resources mapping="/plugins/**" location="/plugins/"></mvc:resources>
 
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <!-- 开启对 SpringMVC 框架的注解以及自定义类型转换器的支持 -->
+    <mvc:annotation-driven  conversion-service="conversionServiceFactoryBean">
+        <!-- 消息转换器 -->
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!-- 注册自定义类型转换器 -->
+    <bean id="conversionServiceFactoryBean" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.ronz.utils.StringConvert"></bean>
+            </set>
+        </property>
+    </bean>
+
+    <!-- 如果想实现对于 Controller 的权限控制，必须要把这段代码放到 springmvc 的配置文件中 -->
+    <security:global-method-security jsr250-annotations="enabled"/>
 </beans>

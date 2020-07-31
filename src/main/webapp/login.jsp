@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" isELIgnored="false" %>
 <html>
 
 <head>
@@ -6,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 
-    <title>数据 - AdminLTE2定制版 | Log in</title>
+    <title>健康信息上报系统-登录</title>
 
 
     <!-- Tell the browser to be responsive to screen width -->
@@ -23,48 +24,35 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../plugins/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
-    <link rel="stylesheet" href="../plugins/iCheck/square/blue.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="plugins/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
 </head>
 
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-
-
-            <a href="all-admin-index.html"><b>数据</b>健康信息上报系统</a>
-
-
+            <b>健康信息上报系统</b>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">登录系统</p>
 
-            <form action="all-admin-index.html" method="get">
+            <form action="${pageContext.request.contextPath}/login.do" method="post">
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="学(工)号">
+                    <input type="number" name="username" class="form-control" placeholder="学(工)号">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="密码">
+                    <input type="password" name="password" class="form-control" placeholder="密码">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
-                <div class="row">
-                    <div class="col-xs-4">
-                        <div class="checkbox icheck">
-                            <label><input type="checkbox"> 记住</label>
-                        </div>
-                    </div>
-
+                <div class="row" align="center" style="margin: 10px 80px;">
                     <!-- /.col -->
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">学生登录</button>
-                    </div>
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">教师登录</button>
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -79,9 +67,9 @@
     <!-- jQuery 2.2.3 -->
     <!-- Bootstrap 3.3.6 -->
     <!-- iCheck -->
-    <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../plugins/iCheck/icheck.min.js"></script>
+    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/iCheck/icheck.min.js"></script>
     <script>
         $(function() {
             $('input').iCheck({

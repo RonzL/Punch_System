@@ -28,7 +28,7 @@ public class StudentDaoTest {
      * */
     @Test
     public void testFindAll(){
-        List<Student> studentList = dao.findAll();
+        List<Student> studentList = dao.findAll(1,2);
         System.out.println(studentList);
     }
 
